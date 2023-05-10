@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de professores</title>
+  </head>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Salário</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr th:each="professor : ${professores}">
+            <th class="col-1" scope="row" th:text="${professor.getId()}">ID</th>
+            <td class="col-4" th:text="${professor.nome}">Nome do Professor</td>
+            <td class="col-2" th:text="${professor.salario}">Salário</td>
+            <td class="col-2" th:text="${professor.statusProfessor.toString()}">STATUS</td>
+            <td class="col-1"><a th:href="@{/professores/{professorId}(professorId = ${professor.id})}">Detalhes</a></td>
+            <td class="col-1"><a th:href="@{/professores/{professorId}/edit(professorId = ${professor.id})}">Editar</a></td>
+            <td class="col-1"><a th:href="@{/professores/{professorId}/delete(professorId = ${professor.id})}">Deletar</a></td>
+      </tr>
+    </tbody>
+  </table>
+</html>

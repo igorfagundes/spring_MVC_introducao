@@ -26,8 +26,7 @@ public class Professor {
     }
 
 //CONSTRUTOR
-    public Professor(Long id, String nome, BigDecimal salario, StatusProfessor statusProfessor) {
-        this.id = id;
+    public Professor(String nome, BigDecimal salario, StatusProfessor statusProfessor) {
         this.nome = nome;
         this.salario = salario;
         this.statusProfessor = statusProfessor;

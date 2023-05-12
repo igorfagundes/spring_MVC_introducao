@@ -1,4 +1,4 @@
-package br.com.thecode.regescweb.repositoryes;
+package br.com.thecode.regescweb.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

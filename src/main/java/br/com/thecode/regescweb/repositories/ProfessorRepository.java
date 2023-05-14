@@ -1,10 +1,11 @@
 package br.com.thecode.regescweb.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-import br.com.thecode.regescweb.models.Professor;
-@Repository
+
+import br.com.thecode.regescweb.model.Professor;
+
+
 public interface ProfessorRepository extends JpaRepository<Professor, Long>{
     
 }

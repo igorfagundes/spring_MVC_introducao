@@ -1,7 +1,6 @@
-package br.com.thecode.regescweb.models;
+package br.com.thecode.regescweb.model;
 
 import java.math.BigDecimal;
-
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,39 +20,54 @@ public class Professor {
     private BigDecimal salario;
     @Enumerated(EnumType.STRING)
     private StatusProfessor statusProfessor;
-//CONSTRUTOR VAZIO
-    public Professor() {
-    }
+//contrutor fantasma
+    public Professor(){
 
-//CONSTRUTOR
+    }
+//construtor
     public Professor(String nome, BigDecimal salario, StatusProfessor statusProfessor) {
         this.nome = nome;
         this.salario = salario;
         this.statusProfessor = statusProfessor;
     }
-//GETTERS AND SETTERS
+//getters and setters
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public BigDecimal getSalario() {
         return salario;
     }
+
     public void setSalario(BigDecimal salario) {
         this.salario = salario;
     }
+
     public StatusProfessor getStatusProfessor() {
         return statusProfessor;
     }
+
     public void setStatusProfessor(StatusProfessor statusProfessor) {
         this.statusProfessor = statusProfessor;
     }
+//to string
+    @Override
+    public String toString() {
+        return "Professor [id=" + id + ", nome=" + nome + ", salario=" + salario + ", statusProfessor="
+                + statusProfessor + "]";
+    }
+    
+    
 }

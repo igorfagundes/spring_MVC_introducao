@@ -35,11 +35,12 @@ public class ProfessorController {
 
         return mv;
     }
-    @Transactional
+    
     @GetMapping("/professor/new")
     public ModelAndView nNew(){
         ModelAndView mv = new ModelAndView("professores/new");
         mv.addObject("statusProfessor", StatusProfessor.values());
+        
         return mv;
     }
     //web parameter tampering
@@ -48,6 +49,7 @@ public class ProfessorController {
         System.out.println("");
         System.out.println(professor);
         System.out.println("");
+        professorRepository.save(professor);
         return "redirect:/professores";
     }
 }

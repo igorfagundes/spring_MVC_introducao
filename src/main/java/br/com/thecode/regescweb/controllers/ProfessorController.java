@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.thecode.regescweb.model.Professor;
 import br.com.thecode.regescweb.model.StatusProfessor;
 import br.com.thecode.regescweb.repositories.ProfessorRepository;
+import jakarta.transaction.Transactional;
 
 @Controller
 public class ProfessorController {
@@ -34,6 +35,7 @@ public class ProfessorController {
 
         return mv;
     }
+    @Transactional
     @GetMapping("/professor/new")
     public ModelAndView nNew(){
         ModelAndView mv = new ModelAndView("professores/new");

@@ -1,6 +1,7 @@
 package br.com.thecode.regescweb.controllers;
 
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class ProfessorController {
         return mv;
     }
     
-    @GetMapping("/professor/new")
+    @GetMapping("/professores/new")
     public ModelAndView nNew(){
         ModelAndView mv = new ModelAndView("professores/new");
         mv.addObject("statusProfessor", StatusProfessor.values());
@@ -47,15 +48,18 @@ public class ProfessorController {
     }
     //web parameter tampering
     @PostMapping("/professores")
-    public String create(@Valid RequisicaoNovoProfessor requisicao, BindingResult result){
+    public ModelAndView create(@Valid RequisicaoNovoProfessor requisicao, BindingResult result){
         if(result.hasErrors()){
             System.out.println("Contem erros");
-            return "redirect:/professor/new";
+
+            ModelAndView mv = new ModelAndView("professores/new");
+            mv.addObject("statusProfessor", StatusProfessor.values());
+            return mv;
         }else{
         Professor professor = requisicao.toProfessor();
         professorRepository.save(professor);
         }
-        return "redirect:/professores";
+        return new ModelAndView("redirect:/professores");
         
     }
 }

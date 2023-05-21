@@ -42,12 +42,13 @@ public class ProfessorController {
     @GetMapping("/professores/new")
     public ModelAndView nNew(){
         ModelAndView mv = new ModelAndView("professores/new");
+        mv.addObject("requisicaoNovoProfessor", new RequisicaoNovoProfessor());
         mv.addObject("statusProfessor", StatusProfessor.values());
 
         return mv;
     }
     //web parameter tampering
-    @PostMapping("/professor")
+    @PostMapping("/professores")
     public ModelAndView create(@Valid RequisicaoNovoProfessor requisicao, BindingResult result){
         if(result.hasErrors()){
             System.out.println("Contem erros");

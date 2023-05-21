@@ -2,8 +2,7 @@ package br.com.thecode.regescweb.model;
 
 import java.math.BigDecimal;
 
-import org.springframework.boot.web.servlet.server.Session;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +11,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.transaction.Transaction;
+
 
 @Entity
 public class Professor {

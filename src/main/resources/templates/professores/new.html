@@ -16,12 +16,14 @@
             <div class="row">
                 <form th:object="${requisicaoNovoProfessor}" action="/professores" method="POST">
                     <div class="mb-3">
-                        <label class="form-label">Nome do professor</label>
-                        <input class="form-control" type="text" th:field="*{nome}">
+                        <label for="validationCustom02" class="form-label">Nome do professor</label>
+                        <input class="form-control" type="text" th:field="*{nome}" id="validationCustom02" required>
+                        <div class="invalid-feedback" th:errors="*{nome}"></div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Salario</label>
-                        <input class="form-control" type="text" th:field="*{salario}">
+                        <label for="validationCustom03" class="form-label">Salario</label>
+                        <input class="form-control" type="text" th:field="*{salario}" id="validationCustom03" required>
+                        <div class="invalid-feedback" th:errors="*{salario}"></div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Status</label>

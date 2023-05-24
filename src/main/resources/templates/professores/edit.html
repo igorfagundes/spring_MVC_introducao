@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head th:replace="~{fragmentos :: head('Novo Professor')}"></head>
+    <head th:replace="~{fragmentos :: head('Editar Professor #')}"></head>
 
 <body>
-    <header th:replace="~{fragmentos :: header('Novo Professor')}"></header>
+    <header th:replace="~{fragmentos :: header('Editar Professor #' + ${professorId})}"></header>
     <div class="container">
         
         <div class="container">
             <div class="row">
-                <form th:object="${requisicaoFromProfessor}" action="/professores" method="POST">
+                <form th:object="${requisicaoFormProfessor}" action="/professores" method="POST">
                     <div class="mb-3">
                         <label for="validationCustom02" class="form-label">Nome do professor</label>
                         <input class="form-control" type="text" th:field="*{nome}" id="validationCustom02" required>

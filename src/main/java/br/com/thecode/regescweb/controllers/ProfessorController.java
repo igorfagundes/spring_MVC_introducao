@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -132,7 +133,15 @@ public class ProfessorController {
             
             return new ModelAndView("redirect:/professores" + id);
     }
-        
-
+    }
+    @GetMapping("/{id}/deletar")
+    public String deletar(@PathVariable Long id){
+        try {
+            this.professorRepository.deleteById(id);
+            return "redirect:/professores";
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println(e);
+            return "redirect:/professores";
+        }
     }
 }

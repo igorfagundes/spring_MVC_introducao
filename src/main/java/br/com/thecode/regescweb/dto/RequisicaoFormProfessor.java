@@ -53,6 +53,14 @@ public class RequisicaoFormProfessor {
         return "RequisicaoNovoProfessor [nome=" + nome + ", statusProfessor=" + statusProfessor + ", salario=" + salario
                 + "]";
     }
+    public Professor toProfessor(Professor professor){
+        professor.setNome(this.nome);
+        professor.setSalario(this.salario);
+        professor.setStatusProfessor(this.statusProfessor);
+
+        return professor;
+
+    }
 
     
     

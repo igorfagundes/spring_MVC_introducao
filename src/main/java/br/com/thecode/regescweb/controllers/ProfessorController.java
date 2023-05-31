@@ -135,13 +135,18 @@ public class ProfessorController {
     }
     }
     @GetMapping("/{id}/deletar")
-    public String deletar(@PathVariable Long id){
+    public ModelAndView deletar(@PathVariable Long id){
+        ModelAndView mv = new ModelAndView("redirect:/professores");
         try {
             this.professorRepository.deleteById(id);
-            return "redirect:/professores";
+            mv.addObject("mensagem", "Professor #" + id + " deletado com sucesso!");
+            mv.addObject("erro", false);
         } catch (EmptyResultDataAccessException e) {
             System.out.println(e);
-            return "redirect:/professores";
+            mv.addObject("mensagem", "Professor #" + id + " não encontrado!");
+            mv.addObject("erro", true);
+
         }
+        return mv;
     }
 }
